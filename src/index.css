@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ─── Base Styles ─── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0F0F0F;
+    color: #E0E0E0;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #121212;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #6C63FF;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B83FF;
+  }
+
+  ::selection {
+    background: rgba(108, 99, 255, 0.3);
+    color: #fff;
+  }
+}
+
+/* ─── Component Styles ─── */
+@layer components {
+  .glass-card {
+    @apply bg-dark-700/50 backdrop-blur-md border border-white/5 rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-white mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-gray-400 text-lg max-w-2xl;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-accent to-accent2 text-white font-medium rounded-xl
+           transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 border border-accent/50 text-accent font-medium rounded-xl
+           transition-all duration-300 hover:bg-accent/10 hover:border-accent
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .skill-badge {
+    @apply px-4 py-2 glass-card text-sm text-gray-300 flex items-center gap-2
+           transition-all duration-300 hover:border-accent/30 hover:text-white;
+  }
+}
+
+/* ─── Utility Styles ─── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+}
