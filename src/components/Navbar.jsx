@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FiDownload } from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { to: 'hero', label: 'Home' },
   { to: 'about', label: 'About' },
-  { to: 'education', label: 'Education' },
+  { to: 'skills', label: 'Skills & Expertise' },
   { to: 'projects', label: 'Projects' },
-  { to: 'skills', label: 'Skills' },
-  { to: 'certifications', label: 'Certifications' },
-  { to: 'leadership', label: 'Leadership' },
-  { to: 'goals', label: 'Goals' },
-  { to: 'vision', label: 'Vision' },
+  { to: 'experience', label: 'Experience' },
   { to: 'contact', label: 'Contact' },
 ];
 
@@ -28,9 +25,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-dark-900/90 backdrop-blur-lg shadow-lg shadow-black/20 py-3'
+          ? 'bg-white/[0.015] backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -59,9 +56,9 @@ const Navbar = () => {
           <a
             href="/resume.pdf"
             download
-            className="ml-4 btn-primary text-sm !py-2 !px-4"
+            className="ml-4 btn-primary text-sm !py-2 !px-4 flex items-center gap-2 group"
           >
-            Resume ↓
+            Resume <FiDownload className="text-sm group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </div>
 
@@ -82,7 +79,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-dark-800/95 backdrop-blur-lg border-t border-white/5"
+            className="lg:hidden bg-dark-900/95 backdrop-blur-xl border-t border-white/[0.05]"
           >
             <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -101,9 +98,9 @@ const Navbar = () => {
               <a
                 href="/resume.pdf"
                 download
-                className="mt-2 btn-primary text-sm text-center"
+                className="mt-2 btn-primary text-sm flex items-center justify-center gap-2 group"
               >
-                Resume ↓
+                Resume <FiDownload className="text-sm group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </div>
           </motion.div>

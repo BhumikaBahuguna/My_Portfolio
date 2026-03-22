@@ -2,97 +2,116 @@ import { motion } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
 import { FiZap, FiTarget, FiCode, FiTrendingUp, FiCpu } from 'react-icons/fi';
 
-/* ─── Data ─── */
-const beliefs = [
-  'I solve problems, not just write code',
-  'Consistency beats intensity',
-  'Learn by building',
-  'Comfortable with discomfort',
-  'Focus on fundamentals',
-  'Clarity over complexity',
-  'Ownership of growth',
-  'Rejections = feedback',
-  'Communication matters',
-  'Build personal brand',
-  'Impact > perfection',
-  'Think like an engineer',
-];
-
 const strengths = [
-  { icon: <FiTarget />, title: 'Problem-solving mindset' },
-  { icon: <FiTrendingUp />, title: 'Learning agility' },
-  { icon: <FiCode />, title: 'Practical development' },
-  { icon: <FiZap />, title: 'Ownership & consistency' },
-  { icon: <FiCpu />, title: 'AI & backend interest' },
+  { icon: <FiTarget />, title: 'Problem Solving' },
+  { icon: <FiTrendingUp />, title: 'Agile Learner' },
+  { icon: <FiCode />, title: 'Full-Stack Dev' },
+  { icon: <FiZap />, title: 'Ownership' },
+  { icon: <FiCpu />, title: 'AI Integration' },
 ];
 
 const About = () => {
   return (
-    <SectionWrapper id="about">
-      {/* Header */}
-      <div className="mb-12">
-        <h2 className="section-title">
-          About <span className="gradient-text">Me</span>
-        </h2>
-        <p className="section-subtitle">
-          A passionate CS student building intelligent, production-ready systems.
-        </p>
-      </div>
+    <SectionWrapper id="about" className="relative">
+      
+      {/* Decorative background blur */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none mix-blend-screen" />
 
-      {/* Bio */}
-      <div className="glass-card p-6 md:p-8 mb-12">
-        <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-          Computer Science student with a strong foundation in software development, data structures,
-          and backend engineering — passionate about building AI-driven and scalable systems.
-          Experienced in <span className="text-accent font-medium">Python, C++, JavaScript, FastAPI, React.js,
-          microservices, and REST APIs</span>. Built ML-powered applications (NLP, OCR, Transformers) and
-          scalable backend systems using Docker, Kubernetes, Redis, and PostgreSQL. Interested in
-          <span className="text-accent2 font-medium"> AI, Generative AI, LLMs, prompt engineering,
-          and product development</span>. Focused on building efficient, intelligent, production-ready systems.
-        </p>
-      </div>
+      <div className="flex flex-col lg:flex-row items-start lg:items-center gap-16 relative z-10">
+        
+        {/* Left visually rich area */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex-1 w-full relative"
+        >
+          <div className="relative">
+            {/* Script overlay */}
+            <h3 className="absolute -top-10 -left-6 text-5xl md:text-7xl font-script text-white/5 transform -rotate-6 z-0 select-none">
+              Behind the code
+            </h3>
+            
+            <h2 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter relative z-10 leading-tight">
+              More than just <br />
+              <span className="gradient-text text-transparent bg-clip-text">Syntax.</span>
+            </h2>
 
-      {/* Strengths */}
-      <div className="mb-12">
-        <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
-          <FiZap className="text-accent" /> Core Strengths
-        </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {strengths.map((s, i) => (
+            <div className="glass-card p-8 relative z-10 overflow-hidden group">
+              {/* Subtle hover gradient inside card */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <p className="text-gray-300 leading-relaxed text-lg font-light mb-6">
+                I’m a Computer Science engineer driven by a relentless curiosity for how things work under the hood. For me, development isn’t just about writing logic—it’s about architecting solutions that scale and adapting to new paradigms.
+              </p>
+              <p className="text-gray-300 leading-relaxed text-lg font-light">
+                Specializing in <span className="font-semibold text-white">Full-Stack Development, ML Pipelines, and AI Integration</span>, I’ve built systems spanning 
+                from highly accurate GenAI summarizers to microservice ecommerce backends. 
+                <span className="block mt-4 italic text-accent font-medium">I don’t just learn frameworks; I solve problems.</span>
+              </p>
+            </div>
+            
+            {/* Script Accent Floating */}
+            <motion.div 
+              animate={{ y: [-5, 5] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatType: 'reverse' }}
+              className="absolute -bottom-8 right-10 text-3xl text-accent2 font-script z-20 transform rotate-[-5deg]"
+            >
+              Building the future.
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Right Data / Strengths Area */}
+        <motion.div 
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex-1 w-full"
+        >
+          <div className="mb-10">
+            <h3 className="text-2xl font-semibold text-white mb-2 tracking-tight">Technical Identity</h3>
+            <p className="text-gray-400 font-light">My core strengths and what I bring to the table.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {strengths.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="glass-card p-5 flex items-center gap-4 bg-white/[0.01] hover:bg-white/[0.04] border border-white/[0.05] transition-all duration-300 hover:border-accent/40 hover:shadow-[0_0_20px_rgba(255,77,141,0.1)] group"
+              >
+                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center text-accent text-xl group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(255,77,141,0.2)]">
+                  {s.icon}
+                </div>
+                <span className="text-base font-medium text-gray-200 group-hover:text-white transition-colors">{s.title}</span>
+              </motion.div>
+            ))}
+            
+            {/* Highlighted Stat Card */}
             <motion.div
-              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass-card-hover p-5 flex flex-col items-center text-center gap-3"
+              transition={{ delay: 0.5 }}
+              className="glass-card p-5 flex flex-col justify-center sm:col-span-2 sm:row-span-2 bg-gradient-to-br from-accent/20 to-accent2/10 border-accent/30 relative overflow-hidden group"
             >
-              <span className="text-2xl text-accent">{s.icon}</span>
-              <span className="text-sm text-gray-300">{s.title}</span>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent blur-[50px] opacity-20 group-hover:opacity-40 transition-opacity" />
+              <div className="text-4xl lg:text-5xl font-black text-white mb-2 leading-none">4+</div>
+              <div className="font-medium text-gray-200 text-lg">Production Ready</div>
+              <div className="text-sm text-gray-400 font-light">Projects deployed &amp; scaled</div>
+              <div className="absolute bottom-4 right-5 text-6xl text-white/5 font-black z-0">💼</div>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Beliefs */}
-      <div>
-        <h3 className="text-xl font-semibold text-white mb-6">💡 My Beliefs</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {beliefs.map((belief, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ scale: 1.03 }}
-              className="glass-card p-4 border-l-2 border-accent/50 hover:border-accent transition-colors"
-            >
-              <p className="text-gray-300 text-sm italic">"{belief}"</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
     </SectionWrapper>
   );
 };
