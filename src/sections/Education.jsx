@@ -6,8 +6,8 @@ const educationData = [
   {
     degree: 'B.Tech in Computer Science & Engineering',
     institution: 'Graphic Era University',
-    gpa: '8.96',
-    period: '2022 – 2026',
+    gpa: '9.02',
+    period: '2023 - 2027',
     highlights: [
       'Specialization in AI, ML & Backend Development',
       'Built 4+ production-level projects',
@@ -17,7 +17,7 @@ const educationData = [
   {
     degree: 'High School Education',
     institution: 'Army Public School, Bareilly',
-    period: 'Completed 2022',
+    period: 'Completed 2023',
     highlights: [
       'Head Girl — led a student body of 3000+',
       'Strong academic foundation',
